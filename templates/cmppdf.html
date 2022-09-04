@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="../static/css/stylepdf.css">
+</head>
+<body>
+    <div id="header">NecyTools</div>
+    <form action="/cmppdf" method="post" enctype="multipart/form-data">
+        <input type="file" required name="pdf"><br>
+        <label for="range">Reduce Size By</label>
+        <input type="number" name="range" min="10" max="90" value="60" name="range">
+        <button>Reduce</button>
+        <a href="/cmppdf?Download/{{name}}">{{Download}}</a>
+    </form>
+</body>
+</html>

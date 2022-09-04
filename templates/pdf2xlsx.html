@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="../static/css/stylepdf.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        #tool1{
+            width:32vw;
+            height:20vh;
+        }
+        button{
+            width:20vw;
+            height:5vh;
+            background-color:#FDDDA2;
+            border:0;
+            border-radius: 8px;
+        }
+        a{
+            color: #793BDD;
+            text-decoration: none;
+            
+        }
+        .cont{
+            border:2px;
+            background-color: #FDDDA2;
+            max-width: 20vw;
+            max-height: 5vh;
+            border-radius: 8px;
+            text-align: center;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="header"><a href="/">NecyTools</a></div>
+    <div class="container pt-5">
+    <form action="/pdf2excel" method="post" enctype="multipart/form-data">
+        <div class="input-group mb-4 tool1">
+            <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload" required name="pdf">
+          </div>
+        <button>Convert</button>
+<br><br>
+<div class="cont pt-2 pb-2">
+<a href="/pdf2excel?Download/{{name}}" class="text-dark">{{Download}}</a></div>
+    </form>
+</div>
+</body>
+</html>

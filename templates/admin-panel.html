@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- Page Header-->
+<header class="masthead"
+  style="background-image: url('   {{ url_for('static', filename='assets/img/home-bg.jpg') }}    ')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Admin Panel</h1>
+          <span class="subheading">Admin Logged In, manage your post and save them from here</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <h1>Add a New Post File</h1>
+      <a href="/edit/0"><button class="btn btn-primary">New Post</button></a>
+      <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+      <h1>Upload</h1>
+      <form action="/upload-file" method="post" enctype="multipart/form-data">
+        <input type="file" name="ch-file">
+        <button class="btn btn-primary">Upload</button>
+      </form>
+      <hr>
+      <h1>Edite Post</h1>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Sr.</th>
+            <th scope="col">Title</th>
+            <th scope="col">Date</th>
+            <th scope="col">Edite</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for post in posts %}
+          <tr>
+            <th scope="row">{{post.serial}}</th>
+            <td>{{post.title}}</td>
+            <td>{{post.date}}</td>
+            <td><a href="/edit/{{post.serial}}"><button class="btn btn-primary">Edite</button></a></td>
+            <td><a href="/delete/{{post.serial}}"><button class="btn btn-primary">Delete</button></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Footer-->
+{% endblock %}
